@@ -44,13 +44,18 @@
         <div class="col-12 col-md-9">
           {{ block "main" . }}
           {{ end }}
+          <div style="text-align: right">
+            {{ if .Params.show_date }}
+              <i>{{ .Date.Format "2 Jan 2006" }}</i>
+            {{ end }}
+          </div>
         </div>
       </div>
     </div>
     {{ else }}
     {{ block "main" . }}
     {{ end }}
-    {{ end}}
+    {{ end }}
   </div>
 
   {{ partial "sub-footer.html" . }}
