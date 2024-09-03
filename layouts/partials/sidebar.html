@@ -4,7 +4,8 @@
   <ul>
     {{ $sectionpages := (where .Site.Pages "Section" .Section) }}
     {{ $menupages := (where .Site.Pages "Weight" 1) }}
-    {{ range (intersect $sectionpages $menupages) sort .Site.RegularPages ".Title" }}
+    {{ $combinedpages := intersect $sectionpages $menupages }}
+    {{ range $combinedpages }}
     <li>
       <a href="{{ .Permalink }}">{{ .Title }}</a>
     </li>
